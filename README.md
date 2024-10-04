@@ -1,50 +1,33 @@
-# React + TypeScript + Vite
+# Проект "Игра с вращением бутылочки"
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Описание
+Это веб-приложение, созданное с использованием React и TypeScript, которое имитирует классическую игру с вращающейся бутылочкой. При клике на бутылочку она вращается и указывает на случайного игрока.
 
-Currently, two official plugins are available:
+### Основные возможности:
+- Реализована анимация вращения бутылочки через библиотеку `framer-motion`.
+- Приложение поддерживает адаптивный дизайн.
+- Динамическое обновление списка игроков.
+  
+## Использованные технологии и библиотеки:
+- **React**: для создания пользовательского интерфейса.
+- **TypeScript**: для строгой типизации и улучшения читаемости кода.
+- **Material UI**: для стилизации компонентов и использования готовых решений (например, аватары, кнопки).
+- **framer-motion**: для анимации вращения бутылочки.
+- **ESLint и Prettier**: для поддержки чистого и стандартизированного кода.
+  
+## Проблемы и недочеты
+### 1. **Механика поцелуев и выбор активного персонажа**:
+   - Не удалось полноценно реализовать механику добавления "поцелуев" игрокам, несмотря на изначальные задумки. Хотя у каждого пользователя есть счетчик, который должен отображать количество поцелуев, фактическое взаимодействие не было завершено.
+   - Логика выбора активного персонажа была реализована частично, но при повторных запусках анимации не всегда корректно обрабатывается статус активного игрока, особенно при переключении состояний анимации.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 2. **Анимация вращения**:
+   - **Что получилось**: анимация вращения бутылочки реализована успешно с помощью библиотеки `framer-motion`. Бутылочка вращается на случайный угол и фиксируется на конечной позиции.
+   - **Минус**: невозможно было корректно синхронизировать изменение состояния активного игрока с окончанием анимации вращения. Иногда игрок активируется до завершения вращения.
 
-## Expanding the ESLint configuration
+### 3. **Адаптивный дизайн**:
+   - Дизайн приложения был адаптирован под разные размеры экранов, и выглядит корректно как на мобильных устройствах, так и на десктопах.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Как можно улучшить проект:
+- Завершить механику добавления "поцелуев" и корректного выбора активного персонажа.
+- Оптимизировать логику вращения и синхронизацию с анимацией, чтобы предотвратить ошибки выбора игрока до окончания вращения.
+- Добавить звуковое сопровождение для улучшения пользовательского опыта.
